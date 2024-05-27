@@ -1,5 +1,11 @@
 FROM python:3.10-slim
 
+# Install git and other necessary dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # set the working directory
 WORKDIR /code
 
